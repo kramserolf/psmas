@@ -95,7 +95,7 @@
         </div>
 
         <div class="form-group form-floating mb-3">
-            <input type="{{ Carbon::now()->addMonth()}} " class="form-control" name="app_date" value="{{ old('app_date') }}" placeholder="app_date" required="required" autofocus>
+            <input type="date" class="form-control" name="app_date" value="{{ old('app_date') }}" placeholder="app_date" required="required" autofocus>
             <label for="floatingName">Appointment Date</label>
             @if ($errors->has('app_date'))
                 <span class="text-danger text-left">{{ $errors->first('app_date') }}</span>
