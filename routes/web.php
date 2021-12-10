@@ -42,3 +42,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });
+
+Route::get('/admin/confirmed', function(){
+	return view('vendor/multiauth/admin/confirmed');
+})->name('admin.confirm');
+
+Route::get('/admin/', function(){
+	return view('vendor/multiauth/admin/home');
+})->name('admin.home');

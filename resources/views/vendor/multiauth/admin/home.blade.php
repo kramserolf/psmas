@@ -8,7 +8,7 @@
             <div class="card">
             <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Confirmed</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin.confirm')}}">Confirmed</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pending</li>
                   </ol>
             </nav>

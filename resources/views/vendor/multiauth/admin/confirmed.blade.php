@@ -1,7 +1,7 @@
 @extends('multiauth::layouts.app')
 @section('content')
 
-@php($users = App\Models\User::where('app_status', 'pending')->latest()->get());
+@php($users = App\Models\User::where('app_status', 'confirmed')->latest()->get());
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-12">
@@ -9,7 +9,7 @@
             <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item active" active-current="page">Confirmed</li>
-                    <li class="breadcrumb-item"><a href="{{ {{route('admin.home')}} }}">Pending</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Pending</li>
                   </ol>
             </nav>
                 <!-- <div class="card-header"></div> -->
