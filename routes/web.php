@@ -47,6 +47,6 @@ Route::get('/admin/confirmed', function(){
 	return view('vendor/multiauth/admin/confirmed');
 })->name('admin.confirm');
 
-Route::get('/admin/', function(){
-	return view('vendor/multiauth/admin/home');
-})->name('admin.home');
+// Route::get('/admin/', function(){
+// 	return view('vendor/multiauth/admin/home');
+// })->name('admin.home');
