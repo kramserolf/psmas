@@ -50,3 +50,5 @@ Route::get('/admin/confirmed', function(){
 // Route::get('/admin/', function(){
 // 	return view('vendor/multiauth/admin/home');
 // })->name('admin.home');
+
+Route::get('/admin/home/{id}/', 'RegisterController@update');

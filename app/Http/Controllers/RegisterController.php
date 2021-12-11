@@ -33,4 +33,12 @@ class RegisterController extends Controller
 
         return redirect('/')->with('success', "Account successfully registered.");
     }
+
+    public function update(Request $request, $id)
+    {
+        $confirmed = User::find($id);
+        $confirmed->app_status = 'Confirmed';
+        $confirmed->save();
+            return redirect()->back();
+    }
 }

@@ -16,7 +16,7 @@
                 <div class="card-body">
                     @include('multiauth::message')
                     <!-- You are logged in to {{ config('multiauth.prefix') }} side! -->
-                    <table class="table table-bordered table-hover" id="alumni">
+                    <table class="table table-bordered table-hover" id="appointment">
                         <thead class="thead-light text-center">
                             <th>Name</th>
                             <th>Address</th>
@@ -35,7 +35,7 @@
                                 <td>{{ $row->app_status }}</td>
                                 <td class="text-center">
                                     <button class="confirm btn btn-success btn-sm" id="{{$row->id}}">confirm</button>
-                                    <button class="confirm btn btn-info btn-sm" id="{{$row->id}}">review</button>
+                                    <button class="confirm btn btn-info btn-sm">review</button></td>
                                 
                                 @endforeach
                             </tr>
@@ -47,4 +47,26 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+//    $(document).ready(function() {
+//     $('#appointment').DataTable();
+// } );
+    // confirm appointment
+    $(document).on('click', '.confirm', function(event){
+      event.preventDefault();
+      var id = $(this).attr('id');
+      var ok = confirm('Are you sure you want confirm this alumni?');
+      if (ok == true) {
+        $.ajax({
+          url: "/admin/home/"+id,
+          success:function(data){
+           alert("Success.");
+            location.reload(true);
+          }
+        });
+      }
+     })
+</script>
+
 @endsection
