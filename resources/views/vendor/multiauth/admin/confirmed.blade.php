@@ -1,14 +1,14 @@
 @extends('multiauth::layouts.app')
 @section('content')
 
-@php($users = App\Models\User::where('app_status', 'confirmed')->latest()->get());
+@php($users = App\Models\User::where('app_status', 'Approved')->latest()->get());
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-12">
             <div class="card">
             <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" active-current="page">Confirmed</li>
+                    <li class="breadcrumb-item active" active-current="page">Approved</li>
                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Pending</li>
                   </ol>
             </nav>
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     @include('multiauth::message')
                     <!-- You are logged in to {{ config('multiauth.prefix') }} side! -->
-                    <table class="table table-bordered table-hover" id="alumni">
+                    <table class="table table-bordered table-hover" id="approved">
                         <thead class="thead-light text-center">
                             <th>Name</th>
                             <th>Address</th>
@@ -40,4 +40,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript"> 
+     $(document).ready(function() {
+        $('#approved').DataTable();
+    });
+</script>
 @endsection

@@ -37,8 +37,14 @@ class RegisterController extends Controller
     public function update(Request $request, $id)
     {
         $confirmed = User::find($id);
-        $confirmed->app_status = 'Confirmed';
+        $confirmed->app_status = 'Approved';
         $confirmed->save();
             return redirect()->back();
+
+        // DB::table('users')
+        // ->where('id', $id)
+        // ->update([
+        //     'app_status'     => "Approved"
+        // ]);
     }
 }

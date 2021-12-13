@@ -11,7 +11,7 @@
         @endauth
 
         @guest
-        <h4>PAROKYA SAN JOSE MANGMANGED APPOINTMENT SYSTEM</h4>
+        <h4>SAINT JOSESPH THE WORKER PARISH AND SHRINE</h4>
         <p class="lead"> Please register or login to view your apppointment status.</p>
         @endguest
     </div>
