@@ -53,4 +53,5 @@ Route::get('/admin/confirmed', function(){
 // Auth::routes();
 
 Route::get('/admin/home/{id}', 'App\Http\Controllers\RegisterController@update')->name('confirm.update');
+Route::get('/admin/home/review/{id}', 'App\Http\Controllers\HomeController@review')->name('home.review');
 

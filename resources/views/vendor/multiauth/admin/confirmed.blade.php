@@ -25,7 +25,7 @@
                         </thead> 
                         <tbody>
                             @foreach ($users as $row)
-                            <tr>
+                            <tr style="text-decoration: none; color: black">
                                 <td>{{ $row->name }}</td>
                                 <td>{{ $row->address }}</td>
                                 <td>{{ $row->app_type }}</td>

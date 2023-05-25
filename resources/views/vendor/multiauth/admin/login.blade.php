@@ -4,8 +4,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ ucfirst(config('multiauth.prefix')) }} Login</div>
-
+                <div class="card-header text-center">
+                  <img src="{{URL::asset('/images/psm_logo.png')}}" width="70" height="auto">
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.login') }}" aria-label="{{ __('Admin Login') }}">
                         @csrf
@@ -49,7 +50,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Login as an Admin') }}
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('admin.password.request') }}">

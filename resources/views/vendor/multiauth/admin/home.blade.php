@@ -39,7 +39,7 @@
                                     <!-- button trigger modal -->
                             
                                     <button type="button" class="confirm btn btn-success btn-sm" id="{{$row->id}}">confirm</button>
-                                    <button type="button" class="review btn btn-info btn-sm"data-bs-toggle="modal" data-bs-target="#exampleModal">review</button>
+                                    <button type="button" class="review btn btn-info btn-sm btn-review" data-id={{ $row->id }} data-toggle="modal" data-target="#exampleModal">review</button>
                                 </td>
                                     @endforeach
                             </tr>
@@ -63,17 +63,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Appointment Information</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
         <div class="modal-body text-uppercase">
-        <p hidden>ID: <strong>{{ $row->id }}</strong></p>
-        <p>Name: <strong>{{ $row->name }}</strong></p>
-        <p>Address: <strong>{{ $row->address }}</strong></p>
-        <p>Appointment Type: <strong>{{ $row->app_type }}</strong></p>
-        <p>Appointment Date: <strong>{{ $row->app_date }}</strong></p>
+            <p hidden>ID: <strong id="modal-id"></strong></p>
+            <p>Name: <strong id="modal-name"></strong></p>
+            <p>Address: <strong id="modal-address"></strong></p>
+            <p>Appointment Type: <strong id="modal-app-type"></strong></p>
+            <p>Appointment Date: <strong id="modal-app-date"></strong></p>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Confirm</button> -->
       </div>
     </div>
@@ -100,5 +102,23 @@
         });
       }
      })
+
+     $('.btn-review').on('click', function() {
+        var id = $(this).data('id'); // get the id from the clicked row
+        $.ajax({
+          url: '/admin/home/review/' + id,
+          success: function(data) {
+            $('#modal-id').text(data.id);
+            $('#modal-name').text(data.name);
+            $('#modal-address').text(data.address);
+            $('#modal-app-type').text(data.app_type);
+            $('#modal-app-date').text(data.app_date);
+
+            // Now open the modal
+            $('#exampleModal').modal('show');
+          }
+        });
+    });
+
 </script>
 @endsection

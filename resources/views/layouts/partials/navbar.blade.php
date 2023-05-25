@@ -19,7 +19,7 @@
       </form> -->
 
       @auth
-        {{auth()->user()->name}}
+      <span class="me-4">{{auth()->user()->name}}</span>
         <div class="text-end">
           <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
         </div>
